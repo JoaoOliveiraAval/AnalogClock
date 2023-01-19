@@ -65,10 +65,12 @@ void AnalogClock::paintEvent(QPaintEvent *) {
     painter.drawLine(88, 0, 96, 0);
     painter.rotate(30.0);
   }
+
   painter.setPen(Qt::NoPen);
   painter.setBrush(minuteColor);
   painter.save();
-  painter.rotate((currentTime().minute() + currentTime().second() / 60.0));
+  painter.rotate(6.0 *
+                 (currentTime().minute() + currentTime().second() / 60.0));
   painter.drawConvexPolygon(minutePoints, 3);
   painter.restore();
   painter.setPen(minuteColor);
